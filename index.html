@@ -21,7 +21,14 @@
                     <img src="./images/logo.jpg" :class="{'pull-left logo': clickSingle}" :title="message">
                     <hgroup class="pull-left">
                         <h1>{{message | lowercase | uppercase}}</h1>
-                        <h3 :style="{color:activeColor,fontSize:fontSize+'px'}">{{memo.split('').reverse().join('')}}</h3>
+                        <template v-if="clickSingle">
+                        <h3 :style="{color:activeColor,fontSize:fontSize+'px'}" >{{memo.split('').reverse().join('')}}</h3>
+                        </template>
+                        <template v-else>
+                        <h3>{{memo}}</h3>
+                        <h3>{{memo}}</h3>
+                        <h3>{{memo}}</h3>
+                        </template>
                     </hgroup>
                     <div id="social-icons" class="pull-right social-icon">
                         <a href="javascript:void(0)" title="TB  on Facebook" target="_blank" @click="clickIcon()">

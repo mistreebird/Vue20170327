@@ -20,8 +20,8 @@
                 <div class="container">
                     <img src="./images/logo.jpg" class="pull-left logo" alt="TB">
                     <hgroup class="pull-left">
-                        <h1>{{message}}</h1>
-                        <h3>進行Vue2實戰開發課程使用</h3>
+                        <h1>{{message | lowercase | uppercase}}</h1>
+                        <h3>{{memo.split('').reverse().join('')}}</h3>
                     </hgroup>
                     <div id="social-icons" class="pull-right social-icon">
                         <a href="javascript:void(0)" title="TB  on Facebook" target="_blank">
@@ -183,10 +183,18 @@
     </div>
 
     <script>
+        Vue.filter('lowercase', function(val) {
+            return val.toLowerCase();
+        })
+
+        Vue.filter('uppercase', function(val) {
+            return val.toUpperCase();
+        })
         var app = new Vue({
             el: "#app",
             data: {
                 message: "TB 的Vue2技術分享",
+                memo: "進行Vue2實戰開發課程使用",
                 clickCount: 0,
                 clickSingle: false
             }

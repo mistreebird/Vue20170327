@@ -31,7 +31,7 @@
                         </template>
                     </hgroup>
                     <div id="social-icons" class="pull-right social-icon">
-                        <a href="javascript:void(0)" title="TB  on Facebook" target="_blank" @click="clickIcon()">
+                        <a href="javascript:void(0)" title="TB  on Facebook" target="_blank" @click="clickIcon">
                             <img src="./images/facebook.png">{{clickCount + 1}}
                         </a>
                         <a href="javascript:void(0)" title="TB on Google+" target="_blank" @mouseover.once="clickIcon" @mouseout.once="clickIcon">
@@ -51,101 +51,20 @@
                     <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
                         <!-- Article START-->
-                        <article class="post" id="post0">
+                        <template v-for="(artilce,index) in artilces">
+                            <article class="post" id="post0" >
                             <header class="post-header">
                                 <h2 class="post-title">
-                                    <a href="http://www.accupass.com/event/register/1605230521577328395030">Vue.js 入門實戰-Accupass 活動通</a>
+                                    <a :href="artilce.href">{{index + "." + artilce.title}}</a>
                                 </h2>
                             </header>
                             <section class="post-body text">
-                                <p>Vue.js（音同view） 是一個以ViewModel 為基礎而發展出來的JavaScript library。與其他框架不同的是，Vue.js 的目標是用簡單的API 來實作資料繫結與操作網頁上的...</p>
-                                <p>... <a class="more" href="http://www.accupass.com/event/register/1605230521577328395030">繼續閱讀</a> ...</p>
+                                <p>{{artilce.summary}}</p>
+                                <p>... <a class="more" :href="artilce.href">繼續閱讀</a> ...</p>
                             </section>
                         </article>
+                        </template>
 
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="https://zh-tw.facebook.com/groups/vuejs.tw/">Vue.js 台灣公開社團| Facebook</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>Vue.js 台灣有2495 位成員。歡迎大家討論簡單好學的Vue.js...</p>
-                                <p>... <a class="more" href="https://zh-tw.facebook.com/groups/vuejs.tw/">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
-
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="http://blog.jsdc.tw/2016/08/25/about-vue">快速瞭解Vue.js，淺談小短篇| JSDC Core Team</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>React，由於它的函數式特質，可以很好地使用函數式編程模式。但是對於初級開發者和初學者這也導致較大的學習難度。Vue 更易學習並能快速投入...</p>
-                                <p>... <a class="more" href="http://blog.jsdc.tw/2016/08/25/about-vue">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
-
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="http://ithelp.ithome.com.tw/articles/10186425">Vue.js 03 - 開發環境- iT 邦幫忙::一起幫忙解決難題，拯救IT 人的一天</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>寫Code首先得建好環境官方下載點提供Development 和Production 版本，除了壓縮外，差在是否顯示Vue 警告和錯誤訊息。 習慣套件管理工具的也可...</p>
-                                <p>... <a class="more" href="http://ithelp.ithome.com.tw/articles/10186425">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
-
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="http://www.winwu.cc/2016/06/vuejs.html">一些平鋪直敘技術相關文: Vue.js 學習資源</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>我堅持今天一定要寫點什麼東西(別問我在堅持什麼XD)，所以先來談談vue.js 這個Library (暫時我還不知道，該定義它是Library 還是Framework，就...</p>
-                                <p>... <a class="more" href="http://www.winwu.cc/2016/06/vuejs.html">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
-
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="http://studyhost.blogspot.com/2017/01/aspnet-web-4-vuejsdatabinding.html">asp.net Web開發框架(4) - 使用Vue.js進行前端資料繫結顯示 - NET Walker</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>我們前面說過Vue.js學起來很簡單，因此我們也不用談什麼初階進階的東西。待會的Demo就直接從伺服器端把一組資料傳到前端，然後透過Vue.js做...</p>
-                                <p>... <a class="more" href="http://studyhost.blogspot.com/2017/01/aspnet-web-4-vuejsdatabinding.html">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
-
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="http://andyyou.github.io/2016/12/16/vue-migration-2/">Vue.js 由1 到2 的旅程- (2) | DEVLOG of andyyou</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>我們要先介紹的是 Vue 的templates 提供了兩種實作方式 。什麼意思，就是我們可以透過Vue 的template 屬性（options）或者DOM templates 的方式...</p>
-                                <p>... <a class="more" href="http://andyyou.github.io/2016/12/16/vue-migration-2/">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
-
-                        <article class="post" id="post0">
-                            <header class="post-header">
-                                <h2 class="post-title">
-                                    <a href="http://www.syscom.com.tw/ePaper_New_Content.aspx?id=587&EPID=231&TableName=sgEPArticle">深入淺出談Vue.js - 凌群電子報</a>
-                                </h2>
-                            </header>
-                            <section class="post-body text">
-                                <p>vue 是什麼. Vue.js是一個構建web 界面的library。 Vue.js 的目標是通過盡可能簡單的API 實現響應的數據綁定和組合的視圖組件。響應的數據綁定...</p>
-                                <p>... <a class="more" href="http://www.syscom.com.tw/ePaper_New_Content.aspx?id=587&EPID=231&TableName=sgEPArticle">繼續閱讀</a> ...</p>
-                            </section>
-                        </article>
                         <!-- Article END-->
 
                     </div>
@@ -217,7 +136,40 @@
                 clickSingle: false,
                 activeColor: 'red',
                 fontSize: 24,
-                inputMessage: 'box'
+                inputMessage: 'box',
+                artilces: [{
+                    "href": "http://www.accupass.com/event/register/1605230521577328395030",
+                    "title": "Vue.js 入門實戰-Accupass 活動通",
+                    "summary": "Vue.js（音同view） 是一個以ViewModel 為基礎而發展出來的JavaScript library。與其他框架不同的是，Vue.js 的目標是用簡單的API 來實作資料繫結與操作網頁上的 ..."
+                }, {
+                    "href": "https://zh-tw.facebook.com/groups/vuejs.tw/",
+                    "title": "Vue.js 台灣公開社團| Facebook",
+                    "summary": "Vue.js 台灣有2495 位成員。歡迎大家討論簡單好學的Vue.js."
+                }, {
+                    "href": "http://blog.jsdc.tw/2016/08/25/about-vue",
+                    "title": "快速瞭解Vue.js，淺談小短篇| JSDC Core Team",
+                    "summary": "React，由於它的函數式特質，可以很好地使用函數式編程模式。但是對於初級開發者和初學者這也導致較大的學習難度。Vue 更易學習並能快速投入 ..."
+                }, {
+                    "href": "http://ithelp.ithome.com.tw/articles/10186425",
+                    "title": "Vue.js 03 - 開發環境- iT 邦幫忙::一起幫忙解決難題，拯救IT 人的一天",
+                    "summary": "寫Code首先得建好環境官方下載點提供Development 和Production 版本，除了壓縮外，差在是否顯示Vue 警告和錯誤訊息。 習慣套件管理工具的也可 ..."
+                }, {
+                    "href": "http://www.winwu.cc/2016/06/vuejs.html",
+                    "title": "一些平鋪直敘技術相關文: Vue.js 學習資源",
+                    "summary": "我堅持今天一定要寫點什麼東西(別問我在堅持什麼XD)，所以先來談談vue.js 這個Library (暫時我還不知道，該定義它是Library 還是Framework，就 ..."
+                }, {
+                    "href": "http://studyhost.blogspot.com/2017/01/aspnet-web-4-vuejsdatabinding.html",
+                    "title": "asp.net Web開發框架(4) - 使用Vue.js進行前端資料繫結顯示 - NET Walker",
+                    "summary": "我們前面說過Vue.js學起來很簡單，因此我們也不用談什麼初階進階的東西。待會的Demo就直接從伺服器端把一組資料傳到前端，然後透過Vue.js做 ..."
+                }, {
+                    "href": "http://andyyou.github.io/2016/12/16/vue-migration-2/",
+                    "title": "Vue.js 由1 到2 的旅程- (2) | DEVLOG of andyyou",
+                    "summary": "我們要先介紹的是 Vue 的templates 提供了兩種實作方式 。什麼意思，就是我們可以透過Vue 的template 屬性（options）或者DOM templates 的方式 ..."
+                }, {
+                    "href": "http://www.syscom.com.tw/ePaper_New_Content.aspx?id=587&EPID=231&TableName=sgEPArticle",
+                    "title": "深入淺出談Vue.js - 凌群電子報",
+                    "summary": "vue 是什麼. Vue.js是一個構建web 界面的library。 Vue.js 的目標是通過盡可能簡單的API 實現響應的數據綁定和組合的視圖組件。響應的數據綁定 ..."
+                }]
             },
             methods: {
                 clickIcon: function(event) {

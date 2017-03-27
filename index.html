@@ -18,10 +18,10 @@
         <header class="header">
             <div class="title-wrapper">
                 <div class="container">
-                    <img src="./images/logo.jpg" class="pull-left logo" alt="TB">
+                    <img src="./images/logo.jpg" :class="{'pull-left logo': clickSingle}" :title="message">
                     <hgroup class="pull-left">
                         <h1>{{message | lowercase | uppercase}}</h1>
-                        <h3>{{memo.split('').reverse().join('')}}</h3>
+                        <h3 :style="{color:activeColor,fontSize:fontSize+'px'}">{{memo.split('').reverse().join('')}}</h3>
                     </hgroup>
                     <div id="social-icons" class="pull-right social-icon">
                         <a href="javascript:void(0)" title="TB  on Facebook" target="_blank">
@@ -196,7 +196,9 @@
                 message: "TB 的Vue2技術分享",
                 memo: "進行Vue2實戰開發課程使用",
                 clickCount: 0,
-                clickSingle: false
+                clickSingle: false,
+                activeColor: 'red',
+                fontSize: 24
             }
         });
     </script>

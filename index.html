@@ -24,10 +24,10 @@
                         <h3 :style="{color:activeColor,fontSize:fontSize+'px'}">{{memo.split('').reverse().join('')}}</h3>
                     </hgroup>
                     <div id="social-icons" class="pull-right social-icon">
-                        <a href="javascript:void(0)" title="TB  on Facebook" target="_blank">
+                        <a href="javascript:void(0)" title="TB  on Facebook" target="_blank" @click="clickIcon()">
                             <img src="./images/facebook.png">{{clickCount + 1}}
                         </a>
-                        <a href="javascript:void(0)" title="TB on Google+" target="_blank">
+                        <a href="javascript:void(0)" title="TB on Google+" target="_blank" @mouseover.once="clickIcon" @mouseout.once="clickIcon">
                             <img src="./images/googleplus.png">{{clickSingle ? "ok" :"no"}}
                         </a>
                         </a>
@@ -154,7 +154,7 @@
                             <div class="widget-content">
                                 <div id="searchbox">
                                     <label for="txt-fb38ecdd-5813-4d10-8c5f-8d901c7c731e" style="display:none">Search</label>
-                                    <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s"><input type="button" value="搜尋" id="searchbutton">
+                                    <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" @keyup="inputMessage=$event.target.value"><input type="button" value="搜尋" id="searchbutton">
                                 </div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                             </h4>
                             <div class="widget-content">
                                 <p>
-                                    hihihihihihi
+                                    {{inputMessage}}
                                 </p>
                             </div>
                         </div>
@@ -198,7 +198,15 @@
                 clickCount: 0,
                 clickSingle: false,
                 activeColor: 'red',
-                fontSize: 24
+                fontSize: 24,
+                inputMessage: ''
+            },
+            methods: {
+                clickIcon: function(event) {
+                    this.clickCount++;
+                    this.clickSingle = !this.clickSingle;
+                    console.log(event.target.tagName);
+                }
             }
         });
     </script>

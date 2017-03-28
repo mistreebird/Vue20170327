@@ -13,7 +13,7 @@
 </head>
 
 <body class="ltr">
-    <div id="app">
+    <div id="app" v-show="bMounted" style="display:none">
         <!-- Header START -->
         <header class="header">
             <div class="title-wrapper">
@@ -112,6 +112,7 @@
         var app = new Vue({
             el: "#app",
             data: {
+                bMounted: true,
                 message: "TB 的Vue2技術分享",
                 memo: "進行Vue2實戰開發課程使用",
                 clickCount: 0,
